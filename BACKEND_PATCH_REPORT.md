@@ -1,8 +1,8 @@
 # Rapport de Patch – Sécurisation du Backend
 
 **Projet :** IPSSI_PATCH  
-**Auteur :** [Ton Nom]  
-**Date :** [Date]
+**Auteur :** GAVI Holali David 
+**Date :** 11/12/2025
 
 ---
 

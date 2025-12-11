@@ -1,8 +1,8 @@
 # Rapport de Patch – Sécurisation du Frontend
 
 **Projet :** IPSSI_PATCH  
-**Auteur :** [Ton Nom]  
-**Date :** [Date]
+**Auteur :** GAVI Holali David 
+**Date :** 11/12/2025
 
 ---
 
@@ -224,11 +224,11 @@ await axios.post(
 
 Le frontend est désormais entièrement aligné avec le backend sécurisé :
 
-- ✅ Les entrées utilisateur sont validées
-- ✅ Les appels API sont corrects
-- ✅ Aucun mot de passe n'est visible
-- ✅ Les commentaires sont protégés contre la XSS
-- ✅ La logique de sécurité est respectée
+- Les entrées utilisateur sont validées
+- Les appels API sont corrects
+- Aucun mot de passe n'est visible
+- Les commentaires sont protégés contre la XSS
+- La logique de sécurité est respectée
 
 Ces corrections rendent l'architecture plus robuste et totalement compatible avec les principes de sécurité enseignés en cybersécurité.
 
