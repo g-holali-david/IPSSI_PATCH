@@ -321,12 +321,12 @@ Les correctifs apportés ont permis de transformer un backend vulnérable en bac
 
 **Les risques majeurs corrigés :**
 
-- ✅ Injection SQL
-- ✅ Exécution SQL arbitraire
-- ✅ XSS stockée
-- ✅ Stockage de mots de passe en clair
-- ✅ Absence de validation
-- ✅ CORS trop permissif
+- Injection SQL
+- Exécution SQL arbitraire
+- XSS stockée
+- Stockage de mots de passe en clair
+- Absence de validation
+- CORS trop permissif
 
 Le backend est maintenant prêt pour être intégré dans un environnement plus sécurisé et pour un rendu académique ou professionnel.
 

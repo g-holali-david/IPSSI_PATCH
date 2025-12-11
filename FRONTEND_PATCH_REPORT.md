@@ -222,15 +222,15 @@ await axios.post(
 
 ## 6. Conclusion
 
-Le frontend est désormais entièrement aligné avec le backend sécurisé :
+Nous avons maintenant:
 
-- Les entrées utilisateur sont validées
-- Les appels API sont corrects
+- Des entrées utilisateur sont validées
+- Des appels API sont corrects
 - Aucun mot de passe n'est visible
-- Les commentaires sont protégés contre la XSS
-- La logique de sécurité est respectée
+- Commentaires sont protégés contre la XSS
+- Logique de sécurité est respectée
 
-Ces corrections rendent l'architecture plus robuste et totalement compatible avec les principes de sécurité enseignés en cybersécurité.
+Ces corrections ont été fait dans le but de rendrent l'architecture sécurisée et compatible avec les principes de sécurité.
 
 ---
 
