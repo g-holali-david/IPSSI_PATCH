@@ -13,7 +13,7 @@ function App() {
     axios.get('http://localhost:8000/users')
       .then(res => setUsers(res.data))
       .catch(err => console.error(err.message));
-    
+
     loadComments();
   }, []);
 
@@ -28,15 +28,25 @@ function App() {
 
   const handleQuery = async (e) => {
     e.preventDefault();
+
+    /* 
+      CORRECTION : 
+      Avant on envoyait du SQL texte.
+      Maintenant on envoie un JSON : { id: 3 }.
+    */
     try {
-      const response = await axios.post('http://localhost:8000/user', `SELECT id, name FROM users WHERE id = ${queryId}`, 
+      const response = await axios.post(
+        'http://localhost:8000/user',
+        { id: queryId }, // <<<<<< CHANGEMENT ICI
         {
           headers : {
-            "Content-Type" : 'text/plain'
+            "Content-Type" : 'application/json'
           }
         }
       );
+
       setQueriedUser(response.data);
+
     } catch (err) {
       console.error('Error querying user:', err.message);
       setQueriedUser(null);
@@ -45,14 +55,26 @@ function App() {
 
   const handleCommentSubmit = async (e) => {
     e.preventDefault();
+
+    /*
+      CORRECTION :
+      Le backend attend { content: "mon commentaire" }
+      et non plus du texte brut.
+    */
     try {
-      await axios.post('http://localhost:8000/comment', newComment, {
-        headers: {
-          "Content-Type": 'text/plain'
+      await axios.post(
+        'http://localhost:8000/comment',
+        { content: newComment }, // <<<<<< CHANGEMENT ICI
+        {
+          headers: {
+            "Content-Type": "application/json"
+          }
         }
-      });
+      );
+
       setNewComment('');
       loadComments();
+
     } catch (err) {
       console.error('Error submitting comment:', err.message);
     }
@@ -63,6 +85,7 @@ function App() {
       <header className="App-header">
         
         <section style={{ marginBottom: '3rem', border: '2px solid #61dafb', padding: '1rem', borderRadius: '8px' }}>
+          
           <h3>Users IDs in SQLite</h3>
           {users.map(u => <p key={u.id}>{u.id}</p>)}
 
@@ -80,9 +103,15 @@ function App() {
           {queriedUser && queriedUser.length > 0 && (
             <div style={{ marginTop: '1rem' }}>
               <h3>Queried User:</h3>
+
               {queriedUser.map(u => (
                 <p key={u.id}>
-                  ID: {u.id} — Name: {u.name} — Password: {u.password}
+                  ID: {u.id} — Name: {u.name}
+                  {/* 
+                    CORRECTION:
+                    On ne montre JAMAIS un mot de passe.
+                    Même haché.
+                  */}
                 </p>
               ))}
             </div>
@@ -131,6 +160,7 @@ function App() {
             )}
           </div>
         </section>
+
       </header>
     </div>
   );
