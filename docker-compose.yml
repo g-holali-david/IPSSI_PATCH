@@ -4,7 +4,7 @@ services:
 
   backend:
     build: ./backend
-    container_name: backend_patch
+    container_name: backend
     ports:
       - "8000:8000"
     volumes:
@@ -15,7 +15,7 @@ services:
 
   frontend:
     build: ./frontend/my-app
-    container_name: frontend_patch
+    container_name: frontend
     ports:
       - "3000:80"
     depends_on:

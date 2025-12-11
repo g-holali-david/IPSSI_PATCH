@@ -1,6 +1,6 @@
 FROM node:18
 
-WORKDIR /app
+WORKDIR /app/nodejs
 
 # Copier seulement package.json, pour éviter de copier node_modules Windows
 COPY package*.json ./
