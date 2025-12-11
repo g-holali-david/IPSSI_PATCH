@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+
+  backend:
+    build: ./backend
+    container_name: backend_patch
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/database.db:/app/database.db
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend/my-app
+    container_name: frontend_patch
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: unless-stopped
